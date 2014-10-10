@@ -1,0 +1,48 @@
+
+<!--
+Philip Guo - CSC 210
+put in public_html/
+ -->
+ <!DOCTYPE HTML>
+<html>
+<head>
+<title>My form</title>
+<link rel="stylesheet" type="text/css" href="form align.css">
+</head>
+<body>
+<right>
+<h1>Please enter your info</h1>
+
+<form action="cgi-bin/hello.py" method="POST">
+  <label><strong>Name</strong>:</label>
+  <br/><br/>
+<input name="my_name" type=text size="30"/>
+<label><strong>Browser</strong>:</label>
+<br/><br/><br/>
+<SELECT NAME="browser">
+
+       <OPTION> Cello
+       <OPTION> Lynx
+       <OPTION> X Mosaic
+       <OPTION> Mac Mosaic
+       <OPTION> Win Mosaic
+       <OPTION> Line Mode
+       <OPTION> Some other
+
+    </SELECT><br>
+    <label><strong>Age</strong>:</label>
+    <br/><br/><input name="my_age" type=text size="10"/>
+<br/>
+<!---<label>Address:</label><TEXTAREA NAME="address" COLS=40 ROWS=6>
+Academic Computing Services
+The University of Kansas
+Lawrence, Kansas 66045
+</TEXTAREA><br><br><br><br><br><br><br>---->
+<br><br><input type="submit"/> 
+<input type="reset"/><br>
+<label><a href="login.html" style="font-size: 36px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Login</a></label>
+<label><a href="register.html" style="font-size: 16px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Create an account</a></label>
+</form>
+</right>
+</body>
+</html>
