@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#Author: Ye Wang, Hao Chen
+#
 import cgi, Cookie, os, sqlite3
 import cgitb
 cgitb.enable()
