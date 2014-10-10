@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-# Author: Philip Guo - CSC 210
 import cgi, Cookie, os, sqlite3
 import cgitb
 cgitb.enable()

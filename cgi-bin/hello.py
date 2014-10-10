@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-# Philip Guo - CSC 210 modiefied by Ye Wang
+# Philip Guo - CSC 210
+# put in public_html/cgi-bin/ and set the proper execute permissions
 
 import cgi
 import datetime
