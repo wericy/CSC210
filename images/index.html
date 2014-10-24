@@ -1,0 +1,56 @@
+
+<!--
+Philip Guo - CSC 210
+put in public_html/
+ -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>My form</title>
+<link rel="stylesheet" type="text/css" href="form align.css">
+</head>
+<body>
+  <h3>Type something: </h3>
+  <input type = "text" name = "inpxx" id = "test" text size = "30"/>
+
+
+
+
+
+<script src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+  $("#submitStuffButton").click(function(){
+    var data = document.getElementsByName("inpxx")[0].value;
+    
+    
+
+    $.ajax({
+
+      success: function(data){
+        $("#stuff").append('<li>' + data + '</li>');
+
+      },
+
+    });
+
+
+  });
+
+});
+
+</script>
+
+
+<label><a href="login.html" style="font-size: 36px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Login</a></label>
+<label><a href="register.html" style="font-size: 16px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Create an account</a></label>
+
+<button id="submitStuffButton">Submit!</button>
+
+<div id="stuff"></div>
+
+
+</body>
+</html>

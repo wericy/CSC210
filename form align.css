@@ -20,10 +20,15 @@ label{
 	text-align: right;
 	color: #FF00DD;
 }
-input {
+input[type = text] {
+  display: inline-block;
+
+}
+input[type = password] {
   display: inline-block;
   float: right;
 }
+
 select {
   display: inline-block;
   float: right;

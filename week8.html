@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Week 8</title>
+<script src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  console.log("Hello world22!")
+	$.ajax({
+		url:"cgi-bin/week8.py",
+		type:"GET",
+		//datatype: "text",//"json","html"
+		//dataType:"json",
+		success: function(dat){
+		  console.log("Received: " + dat);
+		  //console.dir(dat);
+		  $("#stuff").append('<li>' + dat + '</li>');
+		},	
+	});
+	$("#logout") .click(function(){
+		$.ajax({
+			url:"cgi-bin/logout.py",
+			type:"GET",
+			success: function(dat){
+			//console.log("Received: " + dat);
+			$("#stuff").append('<li>' + "kk" + '</li>');
+			},	
+	});
+	
+	});
+
+}); 
+
+</script>
+</head>
+
+<body>
+
+<h1>My title</h1>
+
+<button id="logout">logout</button>
+
+
+
+<div id="stuff"></div>
+
+</body>
+</html>

@@ -1,7 +1,4 @@
 #!/usr/bin/python
-
-
-#Author: Ye Wang, Hao Chen
 import cgi, Cookie, os, sqlite3
 import cgitb
 cgitb.enable()
@@ -19,6 +16,7 @@ if len(all_results)>0:
 	print "<html>"
 	print "<body>"
 	print "<h1>Sorry,this name has already been taken</h1>"
+	print "<a href='../index.html'>Go to Index</a>"
 	print "</body>"
 	print "</html>"
 else:
@@ -29,5 +27,6 @@ else:
 	print "<html>"
 	print "<body>"
 	print "<h1>Account created</h1>"
+	print "<a href='../index.html'>Go to Index</a>"
 	print "</body>"
 	print "</html>"

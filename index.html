@@ -3,46 +3,52 @@
 Philip Guo - CSC 210
 put in public_html/
  -->
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>My form</title>
 <link rel="stylesheet" type="text/css" href="form align.css">
 </head>
 <body>
-<right>
-<h1>Please enter your info</h1>
+<div id="top"></div>
+<h3>Type something: </h3>
+<input type = "text" name = "inpxx" id = "test" text size = "30"/>
 
-<form action="cgi-bin/hello.py" method="POST">
-  <label><strong>Name</strong>:</label>
-  <br/><br/>
-<input name="my_name" type=text size="30"/>
-<label><strong>Browser</strong>:</label>
-<br/><br/><br/>
-<SELECT NAME="browser">
+<script src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url:"cgi-bin/loginChecker.py",
+		type:"GET",
+		//datatype: "text",//"json","html"
+		//dataType:"json",
+		success: function(dat){
+		  console.log("Received: " + dat);
+		  //console.dir(dat);
+		  $("#top").append('<li>' + dat + '</li>');
+		},	
+	});
 
-       <OPTION> Cello
-       <OPTION> Lynx
-       <OPTION> X Mosaic
-       <OPTION> Mac Mosaic
-       <OPTION> Win Mosaic
-       <OPTION> Line Mode
-       <OPTION> Some other
+  $("#submitStuffButton").click(function(){
+    $.ajax({
+      success: function(data){
+        $("#stuff").append('<li>' + document.getElementById("test").value + '</li>');
+      },
+    });
+  });
 
-    </SELECT><br>
-    <label><strong>Age</strong>:</label>
-    <br/><br/><input name="my_age" type=text size="10"/>
-<br/>
-<!---<label>Address:</label><TEXTAREA NAME="address" COLS=40 ROWS=6>
-Academic Computing Services
-The University of Kansas
-Lawrence, Kansas 66045
-</TEXTAREA><br><br><br><br><br><br><br>---->
-<br><br><input type="submit"/> 
-<input type="reset"/><br>
-<label><a href="login.html" style="font-size: 36px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Login</a></label>
-<label><a href="register.html" style="font-size: 16px; color: #FF00DD; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Create an account</a></label>
-</form>
-</right>
+});
+
+</script>
+
+<label><a href="login.html" style="font-size: 25px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Login</a></label>
+<label><a href="logout.html" style="font-size: 25px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Logout</a></label>
+<label><a href="register.html" style="font-size: 16px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Create an account</a></label>
+
+<button id="submitStuffButton">Submit!</button>
+
+<div id="stuff"></div>
+
+
 </body>
 </html>
