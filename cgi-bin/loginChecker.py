@@ -15,18 +15,18 @@ if cookie_string:
 	all_results = c.fetchall()
 	if len(all_results) > 0:
 		saved_name = all_results[0][0]
-		print "Content-type: text/html"
+		print "Content-type: application/json"
 		print # don't forget newline
-		print "Welcome back " + saved_name
+		print '{"name": "%s", "login":1}' %(saved_name)
 	else:
-		print "Content-type: text/html"
+		print "Content-type: application/json"
 		print # don't forget newline
-		print "You have not been logged in"
+		print '{"name": "invalid", "login":0}' 
    
 else:
-	print "Content-type: text/html"
+	print "Content-type: application/json"
 	print # don't forget newline
-	print "You have not been logged in"
+	print '{"name": "invalid", "login":0}' 
 	
 #print "Content-type: text/plain"
 #print "Content-type: application/json" 

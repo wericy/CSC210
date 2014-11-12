@@ -1,39 +1,30 @@
 @charset "utf-8";
+@font-face { font-family: trench100free; src: url('trench100free.otf'); } 
+h5{
+	font-family: trench100free;
+	color:white;
+	font-size:150%;
+}
 html { 
-  background: url(images/bg.jpg) no-repeat center center fixed; 
+  background: url(images/bggg.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-h1 {
-	text-align: right;
-	color: #FFFFFF;
-	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-
 label{
-	display: inline-block;
-	float: right;
-	clear: right;
-	width: 180px;
-	text-align: right;
-	color: #FF00DD;
+        width:400px; 
+        float:right; 
+        clear:right;
+		color:white		
+    } 
+h3{
+	color:white;
 }
-input[type = text] {
-  display: inline-block;
+h4{
+	color:white;
+	font-size:125%;
+	}
 
-}
-input[type = password] {
-  display: inline-block;
-  float: right;
-}
 
-select {
-  display: inline-block;
-  float: right;
-}
-textarea {
-  display: inline-block;
-  float: right;
-}
+

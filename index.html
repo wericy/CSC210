@@ -1,26 +1,50 @@
+
+<!--
+Philip Guo - CSC 210
+put in public_html/
+ -->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>My form</title>
+<title>Chatbox</title>
 <link rel="stylesheet" type="text/css" href="form align.css">
 </head>
 <body>
 <div id="top"></div>
-<h3>Type something: </h3>
+<div><h4><a href="login.html" ><font color="ffffff">Login</font></a>&nbsp;&nbsp;<a href="logout.html" ><font color="ffffff">Logout</a>&nbsp;&nbsp;<a href="register.html"><font color="ffffff">Create an account</font></a></h4></div>
+</div>
+
+<div id = "uinput"> <h5>Type something: </h5>
 <input type = "text" name = "inpxx" id = "test" text size = "30"/>
+<button id="submitStuffButton">Submit!</button> 
+<br><br>
+<div>
+</div>
+
+
+</div>
+
+<div id="stuff"></div>
+
+
 
 <script src="jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
+var username = " PIPI";
 $(document).ready(function() {
 	$.ajax({
 		url:"cgi-bin/loginChecker.py",
 		type:"GET",
 		//datatype: "text",//"json","html"
-		//dataType:"json",
+		dataType:"json",
 		success: function(dat){
 		  console.log("Received: " + dat);
 		  //console.dir(dat);
-		  $("#top").append('<li>' + dat + '</li>');
+		  if(dat.login==1)
+			$("#top").append('<li><h5>'+ 'Welcome back '+ dat.name + '</h5></li>');
+			username=dat.name;
+		  else
+		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');		
 		},	
 	});
 
@@ -30,19 +54,25 @@ $(document).ready(function() {
         $("#stuff").append('<li>' + document.getElementById("test").value + '</li>');
       },
     });
+	$.ajax({
+		url:"cgi-bin/chatadder.py",
+		type:"POST",
+		data:{
+			text:$("#test").val()
+		}
+		dataType:"json",
+		success: function(dat){
+		//console.log("success").
+		}
+	});
   });
 
 });
 
 </script>
 
-<label><a href="login.html" style="font-size: 25px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Login</a></label>
-<label><a href="logout.html" style="font-size: 25px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Logout</a></label>
-<label><a href="register.html" style="font-size: 16px; color: #66CCFF; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; font-weight: bolder; text-align: right;">Create an account</a></label>
 
-<button id="submitStuffButton">Submit!</button>
 
-<div id="stuff"></div>
 
 
 </body>
