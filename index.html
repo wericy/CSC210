@@ -52,7 +52,7 @@ $("#submitStuffButton").click(function(){
 			url:"cgi-bin/writeto.py",
 			type:"POST",
 			data:{msg: message,name: namee},
-			dataType:"test",
+			dataType:"text",
 			success: function(data){
 				$("#stuff").append('<li>' + document.getElementById("test").value + '</li>');
 				var dd=data;
@@ -68,10 +68,5 @@ $("#submitStuffButton").click(function(){
 });
 
 </script>
-
-
-
-
-
 </body>
 </html>

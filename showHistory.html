@@ -2,10 +2,6 @@
 <html>
 <head>
 <title>History</title>
-<link rel="stylesheet" type="text/css" href="form align.css">
-</head>
-<body>
-<div id="top"></div>
 <script src="jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
 var loging;
@@ -17,14 +13,39 @@ $(document).ready(function() {
 		//datatype: "text",//"json","html"
 		dataType:"json",
 		success: function(dat){
-		  console.log("Received: " + dat);
+		  //console.log("Received: " + dat);
 		  //console.dir(dat);
 		  if(dat.login==1){
 			loging=1;
 			namee=dat.name;
-			$("#top").append('<li><h5>'+ dat.name + '\'s history:'+'</h5></li>');}
+			$("#top").append('<li><h5>'+ dat.name + '\'s history:'+'</h5></li>');
+			$.ajax({
+				url:"cgi-bin/retrieveHistory.py",
+				type:"POST",
+				//datatype: "text",//"json","html"
+				data:{nameex: namee},
+				dataType:"json",
+				success: function(dat){	
+					console.dir(dat);
+					$.each(dat, function(index,element) {
+						$('#top').append( element.name +': '+ element.say + '  '+element.time +'<br>' );
+			});
+        }
+	});
+			}
 		  else{
 			loging=0;
-		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');}
+		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');
+			}
 		},	
 	});
+		
+});
+
+</script>
+</head>
+<body>
+<div id="top"></div>
+<div><a href="index.html">Go to Index</a></div>
+</body>
+</html>

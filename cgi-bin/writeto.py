@@ -15,5 +15,5 @@ conn.commit()
 print "Content-type: text/plain"
 print # don't forget newline
 print "%s" %(message)
-print "%s" %(name)
+
 
