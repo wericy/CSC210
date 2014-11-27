@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>History</title>
+<link rel="stylesheet" type="text/css" href="form align.css">
+</head>
+<body>
+<div id="top"></div>
+<script src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+var loging;
+var namee;
+$(document).ready(function() {
+	$.ajax({
+		url:"cgi-bin/loginChecker.py",
+		type:"GET",
+		//datatype: "text",//"json","html"
+		dataType:"json",
+		success: function(dat){
+		  console.log("Received: " + dat);
+		  //console.dir(dat);
+		  if(dat.login==1){
+			loging=1;
+			namee=dat.name;
+			$("#top").append('<li><h5>'+ dat.name + '\'s history:'+'</h5></li>');}
+		  else{
+			loging=0;
+		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');}
+		},	
+	});
