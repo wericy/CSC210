@@ -15,6 +15,26 @@ h6{
 	text-align: left; color: black; font-style: normal; font-weight: bold; font-size: 24px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
 
 }
+h6{
+	font-family: trench100free;
+	margin:0px;
+	text-align: center; color: black; font-style: normal; font-weight: bold; font-size: 24px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
+
+}
+
+h7{
+	font-family: trench100free;
+	margin:0px;
+	text-align: center; color: blue; font-style: normal; font-weight: bold; font-size: 10px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
+
+}
+
+h9{
+	font-family: trench100free;
+	margin:0px;
+	text-align: center; color: blue; font-style: normal; font-weight: bold; font-size: 16px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
+
+}
 .mydiv {
     position:fixed;
     top: 50%;

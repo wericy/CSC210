@@ -19,7 +19,7 @@ $(document).ready(function() {
 		  if(dat.login==1){
 			loging=1;
 			namee=dat.name;
-			$("#top").append('<li><h5>'+ dat.name + '\'s history:'+'</h5></li>');
+			$("#top").append('<h6>'+ dat.name + '\'s history:<br>'+'</h6>');
 			$.ajax({
 				url:"cgi-bin/retrieveHistory.py",
 				type:"POST",
@@ -29,14 +29,14 @@ $(document).ready(function() {
 				success: function(dat){	
 					console.dir(dat);
 					$.each(dat, function(index,element) {
-						$('#top').append( element.name +': '+ element.say + '  '+element.time +'<br>' );
+						$('#top').append( '<h6>' + element.name +': '+ element.say + '  '+element.time +'<br><h6>');
 			});
         }
 	});
 			}
 		  else{
 			loging=0;
-		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');
+		    $("#top").append('<h6>' + 'You are not logged in' + '</h6>');
 			}
 		},	
 	});

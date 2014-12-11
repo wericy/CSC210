@@ -35,13 +35,13 @@ $("#submitStuffButton").click(function(){
 			data:{msg: message,name: namee},
 			dataType:"text",
 			success: function(data){
-				$("#stuff").append('<li>' + document.getElementById("test").value + '</li>');
+				$("#stuff").append('<h7><li>' + document.getElementById("test").value + '</li></h7>');
 				var dd=data;
 			},
 		});
 		}
 	else{
-		$("#stuff").append('<li>' + ' Please login to submit '+ '</li>');	
+		$("#stuff").append('<h7><li>' + ' Please login to submit '+ '</li></h7>');	
 		}
   });
 });
@@ -63,7 +63,7 @@ $("#submitStuffButton").click(function(){
 <br> 
 <input type = "text" name = "inpxx" id = "test" text size = "30"/>
 <button id="submitStuffButton">Submit!</button></h6>
-  <p> <a href="showHistory.html" style="color: #020202; font-weight: bold; text-align: right;" >Show all past History</a></p>
+  <h6><a href="showHistory.html" style="color: #020202; font-weight: bold; text-align: center;" >Show all past History</a></h6>
 </div>
 <div id="stuff" style="color: blue; font-weight: bold; text-align: left;" ></div>
 
