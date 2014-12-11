@@ -1,14 +1,21 @@
 <html>
-<head><title>My register screen</title></head>
+<head><title>My register screen</title><link rel="stylesheet" type="text/css" href="form align.css"></head>
 <body>
-<h1>Please enter your name to register:</h1>
 
+
+
+<div class="mydiv">
+<div>
 <form method="post" action="cgi-bin/register.py">
-
-Name: <input name="my_namer" type=text size="30"/>
+<h6>Please enter your name to register:</h6>
+<h6>Name: <input name="my_namer" type=text size="30"/></br>
+Password:<input name="my_passer" type=password size ="30"/><br>
 <input type="submit"/>
-
+</h6>
 </form>
+
+</div>
+</div>
 <a href="index.html">Go to Index</a>
 </body>
 </html>

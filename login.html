@@ -1,14 +1,22 @@
 <html>
-<head><title>My login screen</title></head>
+<head><title>My login screen</title><link rel="stylesheet" type="text/css" href="form align.css"></head>
 <body>
-<h1>Please enter your name to log in:</h1>
 
+<div class="mydiv">
+<div>
+<h6>Please enter your name to log in:</h6>
+<h6>
 <form method="post" action="cgi-bin/app.py">
 
-Name: <input name="my_name" type=text size="30"/>
+Name: &nbsp; &nbsp; &nbsp;<input name="my_name" type=text size="30"/><br>
+Password:<input name="my_pass" type=password size ="30"/><br>
 <input type="submit"/>
 
 </form>
+</h6>
+
+</div>
+</div>
 <a href="index.html">Go to Index</a>
 
 </body>

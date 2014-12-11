@@ -1,28 +1,8 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/transitional.dtd">
 <html>
 <head>
 <title>Chatbox</title>
 <link rel="stylesheet" type="text/css" href="form align.css">
-</head>
-<body>
-<div id="top"></div>
-<div><h4><a href="login.html" ><font color="ffffff">Login</font></a>&nbsp;&nbsp;<a href="logout.html" ><font color="ffffff">Logout</a>&nbsp;&nbsp;<a href="register.html"><font color="ffffff">Create an account</font></a>&nbsp;&nbsp;<a href="showHistory.html" ><font color="ffffff">Show History</font></a></h4></div>
-</div>
-
-<div id = "uinput"> <h5>Type something: </h5>
-<input type = "text" name = "inpxx" id = "test" text size = "30"/>
-<button id="submitStuffButton">Submit!</button> 
-<br><br>
-<div>
-</div>
-
-
-</div>
-
-<div id="stuff"></div>
-
-
-
 <script src="jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
 var loging;
@@ -35,14 +15,15 @@ $(document).ready(function() {
 		dataType:"json",
 		success: function(dat){
 		  console.log("Received: " + dat);
-		  //console.dir(dat);
+		  //console.dir(dat);	
 		  if(dat.login==1){
 			loging=1;
 			namee=dat.name;
-			$("#top").append('<li><h5>'+ 'Welcome back '+ dat.name + '</h5></li>');}
+			$("#c1").append('<h5>'+ 'Welcome back '+ dat.name + '</h5>');}
+			//$("#topleft").append('<h5>'+ dat.name + '</h5>');}
 		  else{
 			loging=0;
-		    $("#top").append('<li><h5>' + 'You are not logged in' + '</h5></li>');}
+		    $("#c1").append('<h5>' + 'You are not logged in' + '</h5>');}
 		},	
 	});
 $("#submitStuffButton").click(function(){
@@ -63,10 +44,28 @@ $("#submitStuffButton").click(function(){
 		$("#stuff").append('<li>' + ' Please login to submit '+ '</li>');	
 		}
   });
-  
-
 });
-
 </script>
+</head>
+<body>
+<div id="top" class="bgimg">
+    <div id=c1>
+  </div>    
+    <div id=c2>		
+    </div>
+    <div id=c3 style="text-align: right; color: #ECE1E1; font-style: normal; font-weight: bold; font-size: 24px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;">   
+      <a href="login.html" ><font color="ffffff">Login</font></a>&nbsp;&nbsp;
+      <a href="logout.html" ><font color="ffffff">Logout</a>&nbsp;&nbsp;<br>
+      <a href="register.html"><font color="ffffff">New Account</font></a>&nbsp;&nbsp;
+    </div>    
+  </div>
+<div id = "topright"> <h6 class="pos_right">Memos here:
+<br> 
+<input type = "text" name = "inpxx" id = "test" text size = "30"/>
+<button id="submitStuffButton">Submit!</button></h6>
+  <p> <a href="showHistory.html" style="color: #020202; font-weight: bold; text-align: right;" >Show all past History</a></p>
+</div>
+<div id="stuff" style="color: blue; font-weight: bold; text-align: left;" ></div>
+
 </body>
 </html>

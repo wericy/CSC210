@@ -1,12 +1,49 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 @font-face { font-family: trench100free; src: url('trench100free.otf'); } 
+* {margin:0px;padding:0px;}
+html, body {
+    margin: 0px;    
+}
 h5{
 	font-family: trench100free;
-	color:white;
-	font-size:150%;
+	text-align: left; color: #ECE1E1; font-style: normal; font-weight: bold; font-size: 24px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
+
 }
+h6{
+	font-family: trench100free;
+	margin:0px;
+	text-align: left; color: black; font-style: normal; font-weight: bold; font-size: 24px; font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif;
+
+}
+.mydiv {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
+.bgimg {
+	height:80px;
+    background-image: url(images/header20.jpg);
+	float:left;
+	padding:15px 0;
+	width:100%;
+}
+
+#c1{
+	float: left; 	    width: 33%;
+	}
+#c3{
+	float: right;     width: 33%;
+	}
+#c2{display:inline-block; 
+	width: 33%;}
 html { 
-  background: url(images/bggg.png) no-repeat center center fixed; 
+  background: url(images/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -24,6 +61,9 @@ h3{
 h4{
 	color:white;
 	font-size:125%;
+  postion: absolute;
+  top: 0px;
+  right: -500px;
 	}
 
 

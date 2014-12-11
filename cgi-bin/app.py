@@ -1,11 +1,9 @@
 #!/usr/bin/python
 
-# Philip Guo - CSC 210
-# put in public_html/cgi-bin/ and set the proper execute permissions
 
 import cgi, Cookie, os, sqlite3
 
-# to facilitate debugging
+
 import cgitb
 cgitb.enable()
 
@@ -23,7 +21,7 @@ if cookie_string:
     if len(all_results) > 0:
 		saved_name = all_results[0][0]
 		print "Content-type: text/html"
-		print # don't forget newline
+		print 
 		print "<html>"
 		print "<body>"
 		print "<h1>You already logged in as " + saved_name + ", please log out first</h1>"
@@ -32,19 +30,18 @@ if cookie_string:
 		print "</html>"
     else:
 		print "Content-type: text/html"
-		print # don't forget newline
+		print 
 		print "<html>"
 		print "<body>"
-		print "<h1>Error imposter wrong session_id</h1>"
+		print "<h1>Error, wrong session_id</h1>"
 		print "<a href='../index.html'>Go to Index</a>"
 		print "</body>"
 		print "</html>"
 else:
 	form = cgi.FieldStorage()
 	my_name = form['my_name'].value
-	
-	# check whether my_name is in accounts.db
-	c.execute('select * from users where name=?;', (my_name,))
+	my_pass = form['my_pass'].value
+	c.execute('select * from users where name=? and pass=?;', (my_name,my_pass,))
 	all_results = c.fetchall()
 	if len(all_results) > 0:
 		import uuid
@@ -62,20 +59,19 @@ else:
 		
 		print "Content-type: text/html"
 		print cook
-		print # don't forget newline
+		print 
 		print "<html>"
 		print "<body>"
 		print "<h1>Hello, " + my_name +". You're now logged in.</h1>"
-		print "<h2>session_id: " + session_id + "</h2>"
 		print "<a href='../index.html'>Go to Index</a>"
 		print "</body>"
 		print "</html>"
 	else:
 		print "Content-type: text/html"
-		print # don't forget newline
+		print 
 		print "<html>"
 		print "<body>"
-		print "<h1>Sorry unregistered user</h1>"
+		print "<h1>Unable to login,Wrong name or password</h1>"
 		print "<a href='../index.html'>Go to Index</a>"
 		print "</body>"
 		print "</html>"
