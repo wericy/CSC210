@@ -2,11 +2,12 @@
 <html>
 <head>
 <title>History</title>
-<script src="jquery-1.11.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="form align.css">
 <script type="text/javascript">
 var loging;
 var namee;
+
 $(document).ready(function() {
 	$.ajax({
 		url:"cgi-bin/loginChecker.py",
@@ -29,10 +30,13 @@ $(document).ready(function() {
 				success: function(dat){	
 					console.dir(dat);
 					$.each(dat, function(index,element) {
-						$('#top').append( '<h6>' + element.name +': '+ element.say + '  '+element.time +'<br><h6>');
+						$('#top').append( '<h6><div id=tempc>' + element.name +':   '+ element.say + '      at '+element["datetime(CURRENT_TIMESTAMP,'localtime')"] +'    <button id="temp" class="genbutton">delete!</button></div><h6>');
+						$('#tempc').attr("id",element.rowid);
+						$('#temp').attr("id",element.rowid);
+						
+					});
+				}
 			});
-        }
-	});
 			}
 		  else{
 			loging=0;
@@ -40,8 +44,25 @@ $(document).ready(function() {
 			}
 		},	
 	});
-		
+
 });
+$(document).on('click', '.genbutton', function(){
+var did=this.id;
+   	console.log('You clicked button with ID:' + this.id);
+	$.ajax({
+				url:"cgi-bin/delHistory.py",
+				type:"POST",
+				//datatype: "text",//"json","html"
+				data:{id: did},
+				dataType:"text",
+				success: function(){	
+					$('#'+did).remove();										
+					}
+				});
+});
+
+
+
 
 </script>
 </head>

@@ -35,7 +35,7 @@ def get_all_users( json_str = False ):
     conn.row_factory = sqlite3.Row 
     db = conn.cursor()
 
-    rows = db.execute("select * from chatinfo where name = ?;", (username,)).fetchall()
+    rows = db.execute("select rowid,name,say,datetime(CURRENT_TIMESTAMP,'localtime') from chatinfo where name = ?;", (username,)).fetchall()
 
     conn.commit()
     conn.close()
